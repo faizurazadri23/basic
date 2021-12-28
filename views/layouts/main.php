@@ -38,6 +38,17 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
+            
+            [
+                'label'     => 'Inventory',
+                'url'       => '#',
+                'items'     => [
+                    ['label'    => 'Jenis Barang', 'url' => ['/jenis']],
+                    ['label'    => 'Data Supplier', 'url'   => ['/supplier']],
+                    ['label'    => 'Data Barang', 'url' => ['/barang']],
+                ]
+            ],
+
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             // ['label' => 'Entry Form', 'url' => ['/site/entry']],
