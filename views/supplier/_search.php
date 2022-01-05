@@ -15,19 +15,35 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'nama_supplier') ?>
+    <div class="row">
 
-    <?= $form->field($model, 'notelp') ?>
+        <div class="col-md-1">
+            <?= $form->field($model, 'id') ?>
+        </div>
 
-    <?= $form->field($model, 'email') ?>
+        <div class="col-md-2">
+            <?= $form->field($model, 'nama_supplier') ?>
+        </div>
 
-    <?= $form->field($model, 'alamat') ?>
+        <div class="col-md-3">
+            <?= $form->field($model, 'notelp') ?>
+        </div>
 
-    <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+        <div class="col-md-3">
+            <?= $form->field($model, 'email') ?>
+
+        </div>
+        <div class="col-md-3">
+            <?= $form->field($model, 'alamat') ?>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group" style="padding-top:25px">
+            <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+            <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+        </div>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -18,11 +18,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Barang', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -30,7 +30,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'kode_barang',
             'nama_barang',
             'satuan',
-            'id_jenis',
+            [
+                'attribute' => 'id_jenis',
+                'label'     => 'Jenis Barang',
+                'value'     => function($model){
+                    return $model->jenis->nama_jenis;
+                }
+            ],
+            [
+                'attribute' => 'id_supplier',
+                'label'     => 'Nama Supplier',
+                'value'     => function($model){
+                    return $model->supplier->nama_supplier;
+                }
+            ],
+            //'id_jenis',
             //'id_supplier',
             //'harga',
             //'stok',

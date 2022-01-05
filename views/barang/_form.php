@@ -18,9 +18,29 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'satuan')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'id_jenis')->textInput() ?>
+    <!-- <?= $form->field($model, 'id_jenis')->textInput() ?> -->
 
-    <?= $form->field($model, 'id_supplier')->textInput() ?>
+    <?php
+        $queryJenisBarang = (new \app\models\Jenis)->find()->orderBy(['nama_jenis'=>SORT_ASC])->all();
+
+        $dataJenisBarang = \yii\helpers\ArrayHelper::map($queryJenisBarang, 'id', 'nama_jenis');
+
+        echo $form->field($model, 'id_jenis')->dropDownList($dataJenisBarang, [
+            'prompt'=> '--Pilih Jenis Barang--'
+        ])->label('Jenis Barang');
+    ?>
+
+    <!-- <?= $form->field($model, 'id_supplier')->textInput() ?> -->
+
+    <?php
+        $querySupplier = (new \app\models\Supplier)->find()->orderBy(['nama_supplier'=> SORT_ASC])->all();
+
+        $dataSupplier = \yii\helpers\ArrayHelper::map($querySupplier, 'id', 'nama_supplier');
+
+        echo $form->field($model, 'id_supplier')->dropDownList($dataSupplier, [
+            'prompt'=>'--Pilih Supplier--'
+        ])->label('supplier');
+    ?>
 
     <?= $form->field($model, 'harga')->textInput() ?>
 
